@@ -1,6 +1,6 @@
 'use strict';
 
-let bcrypt = require('bcrypt');
+//let bcrypt = require('bcrypt');
 let Mongoose = require('mongoose');
 let Schema = Mongoose.Schema;
 
@@ -42,13 +42,13 @@ userSchema.statics.authenticate = function(email, password, callback) {
                 err.status = 401;
                 return callback(err);
             }
-            bcrypt.compare(password, user.password , function(error, result) {
+            /*bcrypt.compare(password, user.password , function(error, result) {
                 if (result === true) {
                     return callback(null, user);
                 } else {
                     return callback();
                 }
-            })
+            })*/
         });
 };
 
@@ -56,13 +56,13 @@ userSchema.pre('save', function (next) {
     let user = this;
     // only hash the password if it has been modified (or is new)
     if (!user.isModified('password')) return next();
-    bcrypt.genSalt(10, function(err, salt) {
+    /*bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(user.password, salt, function(err, hash) {
             if (err) return next(err);
             user.password = hash;
             next();
         });
-    });
+    });*/
 });
 
 let classroomSchema = new Schema({
