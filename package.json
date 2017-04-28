@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "start": "app.js"
   },
   "author": "Damian Wynter",
   "license": "ISC",
