@@ -5,7 +5,7 @@ let mongoose = require('mongoose');
 let session = require('express-session');
 let mongoStore = require('connect-mongo')(session);
 let bodyParser = require('body-parser').json;
-let logger = require('morgan');
+// let logger = require('morgan');
 
 // Assign routes to variables to be used by app
 let userRoutes = require('./routes/userRoutes');
@@ -17,7 +17,7 @@ let universityRoutes = require('./routes/universityRoutes');
 
 let app = express();
 
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(bodyParser());
 
 mongoose.connect('mongodb://localhost:27017/jusbus');

@@ -16,7 +16,6 @@
     "mongoose": "^4.8.1"
   },
   "devDependencies": {
-    "mocha": "^3.2.0",
-    "morgan": "^1.8.0"
+    "mocha": "^3.2.0"
   }
 }
