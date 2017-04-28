@@ -20,7 +20,7 @@ let app = express();
 // app.use(logger('dev'));
 app.use(bodyParser());
 
-mongoose.connect('mongodb://localhost:27017/jusbus');
+mongoose.connect('mongodb://damian:password@ds123371.mlab.com:23371/heroku_6822tlk9');
 
 let db = mongoose.connection;
 db.on('error', (error) => {
