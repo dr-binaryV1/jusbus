@@ -145,8 +145,6 @@ let restaurantSchema = new Schema({
     description: {type: String, required: false},
     address: {type: String, required: true},
     menu: [menuItemSchema],
-    longitude: {type: Number, required: true},
-    latitude: {type: Number, required: true},
     openTime: {type: Number, required: true},
     closeTime: {type: Number, required: true},
     icon: {type: String, required: true}
