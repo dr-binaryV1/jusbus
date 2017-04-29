@@ -67,16 +67,12 @@ router.get('/dining/:dID/menus/:mID', (req, res) => {
  */
 
 router.post('/dining', (req, res, next) => {
-    for(let food in req.body) {
-        if(req.body.hasOwnProperty(food)) {
-            let dining = new Dining(req.body[food]);
-            dining.save((error, results) => {
-                if (error) return next(error);
-                res.status(201);
-                res.json(results);
-            })
-        }
-    }
+    let dining = new Dining(req.body);
+    dining.save((error, results) => {
+        if (error) return next(error);
+        res.status(201);
+        res.json(results);
+    })
 });
 
 router.post('/dining/:dID/menus', (req, res, next) => {

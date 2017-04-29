@@ -36,7 +36,6 @@ router.get('/entertainment', (req, res) => {
 
 router.post('/entertainment', (req, res, next) => {
        let entertainment = new Entertainment(req.body);
-       console.log(req.data);
        entertainment.save((error, results) => {
            if(error) return next(error);
            res.status(201);
