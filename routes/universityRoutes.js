@@ -195,12 +195,7 @@ router.post('/university', (req, res, next) => {
 
 // Route for creating faculties in university
 router.post('/university/:uID/faculties', (req, res, next) => {
-    for (let fac in req.body) {
-        if(req.body.hasOwnProperty(fac)) {
-            req.university.faculties.push(req.body[fac]);
-        }
-    }
-
+    req.university.faculties.push(req.body);
     req.university.save((error, results) => {
         if (error) return next(error);
         res.status(201);
@@ -210,12 +205,7 @@ router.post('/university/:uID/faculties', (req, res, next) => {
 
 // Route to create classroom in faculties
 router.post('/university/:uID/faculties/:fID/classrooms', (req, res, next) => {
-    for(let class_r in req.body) {
-        if(req.body.hasOwnProperty(class_r)) {
-            req.university.faculty.classrooms.push(req.body[class_r]);
-        }
-    }
-
+    req.university.faculty.classrooms.push(req.body);
     req.university.save((error, results) => {
         if (error) return next(error);
         res.status(201);
@@ -225,13 +215,8 @@ router.post('/university/:uID/faculties/:fID/classrooms', (req, res, next) => {
 
 // Route to create new food location
 router.post('/university/:uID/foods', (req, res, next) => {
-   for(let food in req.body) {
-       if(req.body.hasOwnProperty(food)) {
-           req.university.foods.push(req.body[food]);
-       }
-   }
-
-   req.university.save((error, result) => {
+    req.university.foods.push(req.body);
+    req.university.save((error, result) => {
        if(error) return next(error);
        res.status(201);
        res.json(result);
@@ -240,12 +225,7 @@ router.post('/university/:uID/foods', (req, res, next) => {
 
 // Route to create new atm
 router.post('/university/:uID/atms', (req, res, next) => {
-    for(let atm in req.body) {
-        if(req.body.hasOwnProperty(atm)) {
-            req.university.atms.push(req.body[atm]);
-        }
-    }
-
+    req.university.atms.push(req.body);
     req.university.save((error, result) => {
        if(error) return next(error);
        res.status(201);
@@ -255,12 +235,7 @@ router.post('/university/:uID/atms', (req, res, next) => {
 
 // Route to create new bank
 router.post('/university/:uID/banks', (req, res, next) => {
-   for(let bank in req.body) {
-       if(req.body.hasOwnProperty(bank)) {
-           req.university.banks.push(req.body[bank]);
-       }
-   }
-
+   req.university.banks.push(req.body);
    req.university.save((error, results) => {
       if(error) return next(error);
       res.status(201);
@@ -270,12 +245,7 @@ router.post('/university/:uID/banks', (req, res, next) => {
 
 // Route to create new building
 router.post('/university/:uID/buildings', (req, res, next) => {
-   for(let building in req.body) {
-       if(req.body.hasOwnProperty(building)) {
-           req.university.universityBuildings.push(req.body[building]);
-       }
-   }
-
+   req.university.universityBuildings.push(req.body);
    req.university.save((error, results) => {
        if(error) return next(error);
        res.status(201);
