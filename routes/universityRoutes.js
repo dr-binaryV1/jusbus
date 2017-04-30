@@ -184,7 +184,7 @@ router.get('/university/:uID/buildings/:ubID', (req, res) => {
  */
 
 // Route to creating university
-router.post('/university', mid.requiresLogin, (req, res, next) => {
+router.post('/university', (req, res, next) => {
     let university = new University(req.body);
     university.save((error, results) => {
         if(error) return next(error);
