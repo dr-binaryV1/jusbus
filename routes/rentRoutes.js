@@ -54,7 +54,7 @@ router.get('/rentals/:rID', (req, res) => {
  */
 
 // Route to creating rentals
-router.post('/rentals', mid.requiresLogin, (req, res, next) => {
+router.post('/rentals', (req, res, next) => {
     let rental = new Rental(req.body);
     rental.save((error, result) => {
         if(error) return next(error);
@@ -75,6 +75,7 @@ router.put('/rentals/:rID', (req, res, next) => {
     req.rental.last_name = req.body.last_name;
     req.rental.phone = req.body.phone;
     req.rental.address = req.body.address;
+    req.rental.description = req.body.description;
     req.rental.tenant_gender = req.body.tenant_gender;
     req.rental.num_occupancy = req.body.num_occupancy;
     req.rental.vacancy = req.body.vacancy;

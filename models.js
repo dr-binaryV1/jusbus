@@ -117,6 +117,7 @@ let rentalSchema = new Schema({
     last_name: {type: String, required: true},
     phone: {type: String, required: true},
     address: {type: String, required: true, unique: true},
+    description: {type: String, required: true},
     tenant_gender: {type: String, required: true},
     num_occupancy: {type: Number, required: true},
     vacancy: {type: Number, required: true},
@@ -145,6 +146,8 @@ let restaurantSchema = new Schema({
     description: {type: String, required: false},
     address: {type: String, required: true},
     menu: [menuItemSchema],
+    longitude: {type: Number, required: true},
+    latitude: {type: Number, required: true},
     openTime: {type: Number, required: true},
     closeTime: {type: Number, required: true},
     icon: {type: String, required: true}
