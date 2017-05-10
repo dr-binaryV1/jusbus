@@ -265,6 +265,10 @@ router.put('/university/:uID', (req, res, next) => {
    req.university.name = req.body.name;
    req.university.description = req.body.description;
    req.university.address = req.body.address;
+   req.university.openTime = req.body.openTime;
+   req.university.closeTime = req.body.closeTime;
+   req.university.longitude = req.body.longitude;
+   req.university.latitude = req.body.latitude;
    req.university.icon = req.body.icon;
 
    req.university.save((error, result) => {
