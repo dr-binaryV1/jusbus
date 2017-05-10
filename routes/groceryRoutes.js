@@ -57,3 +57,5 @@ router.post('/grocery', (req, res, next) => {
  * ROUTES ARE GROUPED TOGETHER
  *
  */
+
+module.exports = router;
