@@ -107,6 +107,8 @@ let universitySchema = new Schema({
     address: {type: String, required: true},
     openTime: {type: Number, required: true},
     closeTime: {type: Number, required: true},
+    longitude: {type: Number, required: true},
+    latitude: {type: Number, required: true},
     faculties: [facultySchema],
     universityBuildings: [universityBuildingsSchema],
     banks: [bankSchema],
