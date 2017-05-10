@@ -264,6 +264,7 @@ router.post('/university/:uID/buildings', (req, res, next) => {
 router.put('/university/:uID', (req, res, next) => {
    req.university.name = req.body.name;
    req.university.description = req.body.description;
+   req.university.address = req.body.address;
    req.university.icon = req.body.icon;
 
    req.university.save((error, result) => {

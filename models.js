@@ -104,6 +104,7 @@ let foodSchema = createBuildingSchema();
 let universitySchema = new Schema({
     name: {type: String, required: true, unique: true},
     description: String,
+    address: {type: String, required: true},
     faculties: [facultySchema],
     universityBuildings: [universityBuildingsSchema],
     banks: [bankSchema],
@@ -124,6 +125,17 @@ let rentalSchema = new Schema({
     utilities: [{type: String, required: true}],
     price: {type: Number, required: true},
     status: {type: String, required: true, default: "Available"},
+    longitude: {type: Number, required: true},
+    latitude: {type: Number, required: true},
+    icon: {type: String, required: true}
+});
+
+let grocerySchema = new Schema({
+    name: {type: String, required: true},
+    description: {type: String, required: true},
+    address: {type: String, required: true},
+    openHours: {type: Number, required: true},
+    closeHours: {type: Number, required: true},
     longitude: {type: Number, required: true},
     latitude: {type: Number, required: true},
     icon: {type: String, required: true}
@@ -172,12 +184,14 @@ let entertainmentSchema = new Schema({
 
 let User = Mongoose.model('User', userSchema);
 let Rental = Mongoose.model('Rental', rentalSchema);
+let Grocery = Mongoose.model('Grocery', grocerySchema);
 let Restaurant = Mongoose.model('Restaurant', restaurantSchema);
 let University = Mongoose.model('University', universitySchema);
 let Entertainment = Mongoose.model('Entertainment', entertainmentSchema);
 
 module.exports.User = User;
 module.exports.Rental = Rental;
+module.exports.Grocery = Grocery;
 module.exports.Restaurant = Restaurant;
 module.exports.University = University;
 module.exports.Entertainment = Entertainment;
