@@ -251,10 +251,10 @@ router.post('/university/:uID/buildings', (req, res, next) => {
 // Route to create new bank
 router.post('/university/:uID/banks', (req, res, next) => {
    req.university.banks.push(req.body);
-   req.university.save((error, results) => {
+   req.university.save((error, result) => {
       if(error) return next(error);
       res.status(201);
-      res.json(results);
+      res.json(result);
    });
 });
 

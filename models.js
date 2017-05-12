@@ -78,15 +78,6 @@ let facultySchema = new Schema({
     icon: {type: String, required: true}
 });
 
-let universityBuildingsSchema = new Schema({
-    name: {type: String, required: true, unique: true},
-    description: String,
-    longitude: {type: Number, required: true},
-    latitude: {type: Number, required: true},
-    type: {type: String, required: true},
-    icon: {type: String, required: true}
-});
-
 function createBuildingSchema(){
     return new Schema({
         name: {type: String, required: true, unique: true},
@@ -114,7 +105,7 @@ let universitySchema = new Schema({
     longitude: {type: Number, required: true},
     latitude: {type: Number, required: true},
     faculties: [facultySchema],
-    universityBuildings: [universityBuildingsSchema],
+    universityBuildings: [buildingSchema],
     banks: [bankSchema],
     atms: [atmSchema],
     foods: [foodSchema],
