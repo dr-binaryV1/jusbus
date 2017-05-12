@@ -13,6 +13,7 @@ let rentRoutes = require('./routes/rentRoutes');
 let entRoutes = require('./routes/entertainmentRoutes');
 let diningRoutes = require('./routes/diningRoutes');
 let groceryRoutes = require('./routes/groceryRoutes');
+let buildingRoutes = require('./routes/buildingRoutes');
 let universityRoutes = require('./routes/universityRoutes');
 
 let app = express();
@@ -56,6 +57,7 @@ app.use('/', rentRoutes);
 app.use('/', entRoutes);
 app.use('/', diningRoutes);
 app.use('/', groceryRoutes);
+app.use('/', buildingRoutes);
 app.use('/', universityRoutes);
 
 // Catch 404 and forward to error handler

@@ -151,6 +151,11 @@ router.get('/university/:uID/atms', (req, res) => {
    res.json(req.university.atms);
 });
 
+// Route to get all buildings
+router.get('university/:uID/buildings', (req, res) => {
+   res.json(req.university.universityBuildings);
+});
+
 // Route to get a specific atm
 router.get('/university/:uID/atms/:aID', (req, res) => {
    res.json(req.university.atm);
@@ -233,6 +238,16 @@ router.post('/university/:uID/atms', (req, res, next) => {
     });
 });
 
+// Route to create new buildings
+router.post('/university/:uID/buildings', (req, res, next) => {
+    req.university.universityBuildings.push(req.body);
+    req.university.save((error, result) => {
+      if(error) return next(error);
+      res.status(201);
+      res.json(result);
+    })
+})
+
 // Route to create new bank
 router.post('/university/:uID/banks', (req, res, next) => {
    req.university.banks.push(req.body);
@@ -265,6 +280,7 @@ router.put('/university/:uID', (req, res, next) => {
    req.university.name = req.body.name;
    req.university.description = req.body.description;
    req.university.address = req.body.address;
+   req.university.tel = req.body.tel;
    req.university.openTime = req.body.openTime;
    req.university.closeTime = req.body.closeTime;
    req.university.longitude = req.body.longitude;
