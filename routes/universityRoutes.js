@@ -50,6 +50,17 @@ router.param("cID", (req,res,next,id) => {
     next();
 });
 
+router.param("clID", (req, res, id) => {
+    let doc = req.university.clubs.id(id);
+    if(!doc) {
+        let error = new Error("Not Found");
+        error.status(404);
+        return next(error);
+    }
+    req.university.club = doc;
+    next();
+});
+
 router.param("foID", (req, res, next, id) => {
    let doc = req.university.foods.id(id);
    if(!doc) {
@@ -417,6 +428,17 @@ router.delete("/university/:uID/faculties/:fID", (req, res, next) => {
            res.json(results);
        })
    })
+});
+
+// Delete a specific club
+router.delete("/university/:uID/clubs/:clID", (req, res, next) => {
+    req.university.club.remove((error) => {
+        if(error) return next(error);
+        req.university.save((error, results) => {
+            if(error) return next(error);
+            res.json(results);
+        })
+    })
 });
 
 // Delete a specific classroom
