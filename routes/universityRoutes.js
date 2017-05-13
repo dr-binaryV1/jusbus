@@ -50,7 +50,7 @@ router.param("cID", (req,res,next,id) => {
     next();
 });
 
-router.param("clID", (req, res, id) => {
+router.param("clID", (req, res,next,id) => {
     let doc = req.university.clubs.id(id);
     if(!doc) {
         let error = new Error("Not Found");
