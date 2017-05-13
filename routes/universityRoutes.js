@@ -226,8 +226,8 @@ router.post('/university/:uID/faculties/:fID/classrooms', (req, res, next) => {
 // Route to create clubs in university
 router.post('/university/:uID/clubs', (req, res, next) => {
     req.university.clubs.push(req.body);
-    req.university.save((error, result) => {
-        if(error) return next(error);
+    req.university.save((error, results) => {
+        if(error) return next(errors);
         res.status(201);
         res.json(results);
     });
