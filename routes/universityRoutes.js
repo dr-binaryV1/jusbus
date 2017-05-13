@@ -136,6 +136,11 @@ router.get('/university/:uID/faculties/:fID/classrooms/:cID', (req, res) => {
     res.json(req.university.faculties.classroom);
 });
 
+// Route to get clubSchema
+router.get('/university/:uID/clubs', (req, res) => {
+    res.json(req.university.clubs);
+});
+
 // Route to get all food locations
 router.get('/university/:uID/foods', (req, res) => {
    res.json(req.university.foods);
@@ -213,6 +218,16 @@ router.post('/university/:uID/faculties/:fID/classrooms', (req, res, next) => {
     req.university.faculty.classrooms.push(req.body);
     req.university.save((error, results) => {
         if (error) return next(error);
+        res.status(201);
+        res.json(results);
+    });
+});
+
+// Route to create clubs in university
+router.post('/university/:uID/clubs', (req, res, next) => {
+    req.university.clubs.push(req.body);
+    req.university.save((error, result) => {
+        if(error) return next(error);
         res.status(201);
         res.json(results);
     });

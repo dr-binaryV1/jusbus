@@ -78,7 +78,7 @@ let facultySchema = new Schema({
     icon: {type: String, required: true}
 });
 
-function createBuildingSchema(){
+function createSchema(){
     return new Schema({
         name: {type: String, required: true, unique: true},
         description: String,
@@ -90,10 +90,11 @@ function createBuildingSchema(){
     });
 }
 
-let bankSchema = createBuildingSchema();
-let atmSchema = createBuildingSchema();
-let foodSchema = createBuildingSchema();
-let buildingSchema = createBuildingSchema();
+let bankSchema = createSchema();
+let atmSchema = createSchema();
+let foodSchema = createSchema();
+let buildingSchema = createSchema();
+let clubSchema  = createSchema();
 
 let universitySchema = new Schema({
     name: {type: String, required: true, unique: true},
@@ -104,6 +105,7 @@ let universitySchema = new Schema({
     closeTime: {type: Number, required: true},
     longitude: {type: Number, required: true},
     latitude: {type: Number, required: true},
+    clubs: [clubSchema],
     faculties: [facultySchema],
     universityBuildings: [buildingSchema],
     banks: [bankSchema],
