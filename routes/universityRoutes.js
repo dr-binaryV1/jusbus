@@ -54,7 +54,7 @@ router.param("clID", (req, res, id) => {
     let doc = req.university.clubs.id(id);
     if(!doc) {
         let error = new Error("Not Found");
-        error.status(404);
+        error.status = 404;
         return next(error);
     }
     req.university.club = doc;
