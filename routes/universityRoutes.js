@@ -345,13 +345,13 @@ router.put('/university/:uID/faculties/:fID/classrooms/:cID', (req, res, next) =
 
 // Route to update a food shop
 router.put('/university/:uID/foods/:foID', (req, res, next) => {
-  req.university.universityBuilding.name = req.body.name;
-  req.university.universityBuilding.description = req.body.description;
-  req.university.universityBuilding.openTime = req.body.openTime;
-  req.university.universityBuilding.closeTime = req.body.closeTime;
-  req.university.universityBuilding.latitude = req.body.latitude;
-  req.university.universityBuilding.longitude = req.body.longitude;
-  req.university.universityBuilding.icon = req.body.icon;
+  req.university.foods.name = req.body.name;
+  req.university.foods.description = req.body.description;
+  req.university.foods.openTime = req.body.openTime;
+  req.university.foods.closeTime = req.body.closeTime;
+  req.university.foods.latitude = req.body.latitude;
+  req.university.foods.longitude = req.body.longitude;
+  req.university.foods.icon = req.body.icon;
 
    req.university.save((error, result) => {
        if(error) return next(error);
@@ -362,13 +362,13 @@ router.put('/university/:uID/foods/:foID', (req, res, next) => {
 
 // Route to update a food shop
 router.put('/university/:uID/clubs/:clID', (req, res, next) => {
-  req.university.universityBuilding.name = req.body.name;
-  req.university.universityBuilding.description = req.body.description;
-  req.university.universityBuilding.openTime = req.body.openTime;
-  req.university.universityBuilding.closeTime = req.body.closeTime;
-  req.university.universityBuilding.latitude = req.body.latitude;
-  req.university.universityBuilding.longitude = req.body.longitude;
-  req.university.universityBuilding.icon = req.body.icon;
+  req.university.clubs.name = req.body.name;
+  req.university.clubs.description = req.body.description;
+  req.university.clubs.openTime = req.body.openTime;
+  req.university.clubs.closeTime = req.body.closeTime;
+  req.university.clubs.latitude = req.body.latitude;
+  req.university.clubs.longitude = req.body.longitude;
+  req.university.clubs.icon = req.body.icon;
 
    req.university.save((error, result) => {
        if(error) return next(error);
@@ -379,13 +379,13 @@ router.put('/university/:uID/clubs/:clID', (req, res, next) => {
 
 // Route to update atm
 router.put('/university/:uID/atms/:aID', (req, res, next) => {
-  req.university.universityBuilding.name = req.body.name;
-  req.university.universityBuilding.description = req.body.description;
-  req.university.universityBuilding.openTime = req.body.openTime;
-  req.university.universityBuilding.closeTime = req.body.closeTime;
-  req.university.universityBuilding.latitude = req.body.latitude;
-  req.university.universityBuilding.longitude = req.body.longitude;
-  req.university.universityBuilding.icon = req.body.icon;
+  req.university.atms.name = req.body.name;
+  req.university.atms.description = req.body.description;
+  req.university.atms.openTime = req.body.openTime;
+  req.university.atms.closeTime = req.body.closeTime;
+  req.university.atms.latitude = req.body.latitude;
+  req.university.atms.longitude = req.body.longitude;
+  req.university.atms.icon = req.body.icon;
 
     req.university.save((error, result) => {
         if(error) return next(error);
@@ -396,13 +396,13 @@ router.put('/university/:uID/atms/:aID', (req, res, next) => {
 
 // Route to update bank
 router.put('/university/:uID/banks/:bID', (req, res, next) => {
-  req.university.universityBuilding.name = req.body.name;
-  req.university.universityBuilding.description = req.body.description;
-  req.university.universityBuilding.openTime = req.body.openTime;
-  req.university.universityBuilding.closeTime = req.body.closeTime;
-  req.university.universityBuilding.latitude = req.body.latitude;
-  req.university.universityBuilding.longitude = req.body.longitude;
-  req.university.universityBuilding.icon = req.body.icon;
+  req.university.banks.name = req.body.name;
+  req.university.banks.description = req.body.description;
+  req.university.banks.openTime = req.body.openTime;
+  req.university.banks.closeTime = req.body.closeTime;
+  req.university.banks.latitude = req.body.latitude;
+  req.university.banks.longitude = req.body.longitude;
+  req.university.banks.icon = req.body.icon;
 
     req.university.save((error, result) => {
         if(error) return next(error);
