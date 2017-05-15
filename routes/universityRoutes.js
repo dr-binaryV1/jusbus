@@ -345,10 +345,13 @@ router.put('/university/:uID/faculties/:fID/classrooms/:cID', (req, res, next) =
 
 // Route to update a food shop
 router.put('/university/:uID/foods/:foID', (req, res, next) => {
-   req.university.food.name = req.body.name;
-   req.university.food.description = req.body.description;
-   req.university.food.latitude = req.body.latitude;
-   req.university.food.icon = req.body.icon;
+  req.university.universityBuilding.name = req.body.name;
+  req.university.universityBuilding.description = req.body.description;
+  req.university.universityBuilding.openTime = req.body.openTime;
+  req.university.universityBuilding.closeTime = req.body.closeTime;
+  req.university.universityBuilding.latitude = req.body.latitude;
+  req.university.universityBuilding.longitude = req.body.longitude;
+  req.university.universityBuilding.icon = req.body.icon;
 
    req.university.save((error, result) => {
        if(error) return next(error);
@@ -359,10 +362,13 @@ router.put('/university/:uID/foods/:foID', (req, res, next) => {
 
 // Route to update atm
 router.put('/university/:uID/atms/:aID', (req, res, next) => {
-    req.university.atm.name = req.body.name;
-    req.university.atm.description = req.body.description;
-    req.university.atm.latitude = req.body.latitude;
-    req.university.atm.icon = req.body.icon;
+  req.university.universityBuilding.name = req.body.name;
+  req.university.universityBuilding.description = req.body.description;
+  req.university.universityBuilding.openTime = req.body.openTime;
+  req.university.universityBuilding.closeTime = req.body.closeTime;
+  req.university.universityBuilding.latitude = req.body.latitude;
+  req.university.universityBuilding.longitude = req.body.longitude;
+  req.university.universityBuilding.icon = req.body.icon;
 
     req.university.save((error, result) => {
         if(error) return next(error);
@@ -373,10 +379,13 @@ router.put('/university/:uID/atms/:aID', (req, res, next) => {
 
 // Route to update bank
 router.put('/university/:uID/banks/:bID', (req, res, next) => {
-    req.university.bank.name = req.body.name;
-    req.university.bank.description = req.body.description;
-    req.university.bank.latitude = req.body.latitude;
-    req.university.bank.icon = req.body.icon;
+  req.university.universityBuilding.name = req.body.name;
+  req.university.universityBuilding.description = req.body.description;
+  req.university.universityBuilding.openTime = req.body.openTime;
+  req.university.universityBuilding.closeTime = req.body.closeTime;
+  req.university.universityBuilding.latitude = req.body.latitude;
+  req.university.universityBuilding.longitude = req.body.longitude;
+  req.university.universityBuilding.icon = req.body.icon;
 
     req.university.save((error, result) => {
         if(error) return next(error);
