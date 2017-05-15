@@ -87,5 +87,16 @@ router.post('/grocery', (req, res, next) => {
  * ROUTES ARE GROUPED TOGETHER
  *
  */
+ // Delete a specific university
+ router.delete("/grocery/:gID", (req, res, next) => {
+     req.grocery.remove((error) => {
+         if(error) return next(error);
+         req.grocery.save((error, results) => {
+             if(error) return next(error);
+             res.status(201);
+             res.json(results);
+         });
+     });
+ });
 
 module.exports = router;
