@@ -360,6 +360,23 @@ router.put('/university/:uID/foods/:foID', (req, res, next) => {
    })
 });
 
+// Route to update a food shop
+router.put('/university/:uID/clubs/:clID', (req, res, next) => {
+  req.university.universityBuilding.name = req.body.name;
+  req.university.universityBuilding.description = req.body.description;
+  req.university.universityBuilding.openTime = req.body.openTime;
+  req.university.universityBuilding.closeTime = req.body.closeTime;
+  req.university.universityBuilding.latitude = req.body.latitude;
+  req.university.universityBuilding.longitude = req.body.longitude;
+  req.university.universityBuilding.icon = req.body.icon;
+
+   req.university.save((error, result) => {
+       if(error) return next(error);
+       res.status(201);
+       res.json(result);
+   })
+});
+
 // Route to update atm
 router.put('/university/:uID/atms/:aID', (req, res, next) => {
   req.university.universityBuilding.name = req.body.name;
