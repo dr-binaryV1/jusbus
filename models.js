@@ -123,7 +123,7 @@ let rentalSchema = new Schema({
     tenant_gender: {type: String, required: true},
     num_occupancy: {type: Number, required: true},
     vacancy: {type: Number, required: true},
-    utilities: [{type: String, required: true}],
+    utilities: [{type: String}],
     price: {type: Number, required: true},
     status: {type: String, required: true, default: "Available"},
     longitude: {type: Number, required: true},

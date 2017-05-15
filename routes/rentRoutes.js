@@ -83,7 +83,6 @@ router.put('/rentals/:rID', (req, res, next) => {
     req.rental.status = req.body.status;
     req.rental.longitude = req.body.longitude;
     req.rental.latitude = req.body.latitude;
-    req.rental.utilities = req.body.utilities;
     req.rental.icon = req.body.icon;
 
     req.rental.save((error, result) => {
