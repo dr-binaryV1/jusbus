@@ -12,6 +12,18 @@ let Grocery = Models.Grocery;
  *
  */
 
+ router.param("gID", (req,res,next,id) => {
+     Grocery.findById(id, (error, doc) => {
+         if(error) return next(error);
+         if(!doc) {
+             error = new Error("Not Found");
+             error.status = 404;
+             return next(error);
+         }
+         req.grocery = doc;
+         return next();
+     });
+ });
 
 /***
  *
@@ -49,6 +61,24 @@ router.post('/grocery', (req, res, next) => {
  * ROUTES ARE GROUPED TOGETHER
  *
  */
+
+ // Route to update university
+ router.put('/grocery/:gID', (req, res, next) => {
+    req.grocery.name = req.body.name;
+    req.grocery.description = req.body.description;
+    req.grocery.address = req.body.address;
+    req.grocery.openTime = req.body.openTime;
+    req.grocery.closeTime = req.body.closeTime;
+    req.grocery.longitude = req.body.longitude;
+    req.grocery.latitude = req.body.latitude;
+    req.grocery.icon = req.body.icon;
+
+    req.grocery.save((error, result) => {
+        if(error) return next(error);
+        res.status(201);
+        res.json(result);
+    })
+ });
 
 
 /***
