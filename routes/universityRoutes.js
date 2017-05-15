@@ -389,8 +389,10 @@ router.put('/university/:uID/banks/:bID', (req, res, next) => {
 router.put('/university/:uID/buildings/:ubID', (req, res, next) => {
     req.university.universityBuilding.name = req.body.name;
     req.university.universityBuilding.description = req.body.description;
+    req.university.universityBuilding.openTime = req.body.openTime;
+    req.university.universityBuilding.closeTime = req.body.closeTime;
     req.university.universityBuilding.latitude = req.body.latitude;
-    req.university.universityBuilding.type = req.body.type;
+    req.university.universityBuilding.longitude = req.body.longitude;
     req.university.universityBuilding.icon = req.body.icon;
 
     req.university.save((error, result) => {
