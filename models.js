@@ -1,6 +1,6 @@
 'use strict';
 
-let bcrypt = require('bcrypt');
+//let bcrypt = require('bcrypt');
 let Mongoose = require('mongoose');
 let Schema = Mongoose.Schema;
 
@@ -32,38 +32,38 @@ let userSchema = new Schema({
 });
 
 // authenticate input against database documents
-userSchema.statics.authenticate = function(email, password, callback) {
-    User.findOne({ email: email })
-        .exec(function (error, user) {
-            if (error) {
-                return callback(error);
-            } else if ( !user ) {
-                let err = new Error('User not found.');
-                err.status = 401;
-                return callback(err);
-            }
-            bcrypt.compare(password, user.password , function(error, result) {
-                if (result === true) {
-                    return callback(null, user);
-                } else {
-                    return callback();
-                }
-            })
-        });
-};
-
-userSchema.pre('save', function (next) {
-    let user = this;
-    // only hash the password if it has been modified (or is new)
-    if (!user.isModified('password')) return next();
-    bcrypt.genSalt(10, function(err, salt) {
-        bcrypt.hash(user.password, salt, function(err, hash) {
-            if (err) return next(err);
-            user.password = hash;
-            next();
-        });
-    });
-});
+// userSchema.statics.authenticate = function(email, password, callback) {
+//     User.findOne({ email: email })
+//         .exec(function (error, user) {
+//             if (error) {
+//                 return callback(error);
+//             } else if ( !user ) {
+//                 let err = new Error('User not found.');
+//                 err.status = 401;
+//                 return callback(err);
+//             }
+//             bcrypt.compare(password, user.password , function(error, result) {
+//                 if (result === true) {
+//                     return callback(null, user);
+//                 } else {
+//                     return callback();
+//                 }
+//             })
+//         });
+// };
+//
+// userSchema.pre('save', function (next) {
+//     let user = this;
+//     // only hash the password if it has been modified (or is new)
+//     if (!user.isModified('password')) return next();
+//     bcrypt.genSalt(10, function(err, salt) {
+//         bcrypt.hash(user.password, salt, function(err, hash) {
+//             if (err) return next(err);
+//             user.password = hash;
+//             next();
+//         });
+//     });
+// });
 
 let classroomSchema = new Schema({
     name: String
