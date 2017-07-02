@@ -25,7 +25,10 @@ let userSchema = new Schema({
     password: {type: String, required: true},
     phone: {type: String, unique: true},
     faculty: {type: String, required: true},
-    currentYear: {type: Number, default: 1}
+    currentYear: {type: Number, default: 1},
+    timetable: [timetableSchema],
+    createdAt: {type: Date, default: Date.now},
+    updatedAt: {type: Date, default: Date.now}
 });
 
 // authenticate input against database documents
