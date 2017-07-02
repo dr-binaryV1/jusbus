@@ -67,10 +67,10 @@ router.get('/users/:usID/timetable', (req, res) => {
 // Route for creating users
 router.post('/users', (req, res, next) => {
     let user = new Users(req.body);
-    user.save((error, user) => {
+    user.save((error, results) => {
         if(error) return next(error);
         res.status(201);
-        res.json(user);
+        res.json(results);
     })
 });
 
