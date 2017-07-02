@@ -71,7 +71,7 @@ router.post('/users', (req, res, next) => {
         if(error) return next(error);
         res.status(201);
         res.json(user);
-    });
+    })
 });
 
 // Route to create timetable
