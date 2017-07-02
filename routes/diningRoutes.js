@@ -51,6 +51,10 @@ router.get('/dining', (req, res) => {
    })
 });
 
+router.get('/dining/:dID', (req, res) =>{
+    res.json(req.dining);
+});
+
 router.get('/dining/:dID/menus', (req, res) =>{
     res.json(req.dining.menu);
 });
