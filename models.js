@@ -162,12 +162,19 @@ let menuItemSchema = new Schema({
     picture: [{type: String, required: true}]
 });
 
+let commentSchema = new Schema({
+    name: {type: String, required: true},
+    email: {type: String, required: true},
+    comment: {type: String, required: true},
+});
+
 let restaurantSchema = new Schema({
     name: {type: String, required: true},
     description: {type: String, required: false},
     address: {type: String, required: true},
     tel: {type: String, required: true},
     menu: [menuItemSchema],
+    comments: [commentSchema],
     longitude: {type: Number, required: true},
     latitude: {type: Number, required: true},
     openTime: {type: Number, required: true},
