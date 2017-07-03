@@ -80,7 +80,7 @@ router.post('/dining', (req, res, next) => {
 });
 
 router.post('/dining/:dID/menus', (req, res, next) => {
-   req.dining.menu.push(req.body[dining]);
+   req.dining.menu.push(req.body);
    req.dining.save((error, results) => {
        if(error) return next(error);
        res.status(201);
@@ -89,7 +89,7 @@ router.post('/dining/:dID/menus', (req, res, next) => {
 });
 
 router.post('/dining/:dID/menus/:mID/sizes', (req, res, next) => {
-    req.dining.menuItem.variations.push(req.body[size]);
+    req.dining.menuItem.variations.push(req.body);
     req.dining.save((error, results) => {
         if(error) return next(error);
         res.status(201);
