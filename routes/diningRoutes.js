@@ -59,6 +59,10 @@ router.get('/dining/:dID/menus', (req, res) =>{
     res.json(req.dining.menu);
 });
 
+router.get('/dining/:dID/comments', (req, res) =>{
+    res.json(req.dining.comments);
+});
+
 router.get('/dining/:dID/menus/:mID', (req, res) => {
    res.json(req.dining.menuItem);
 });
