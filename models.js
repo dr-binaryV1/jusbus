@@ -180,6 +180,7 @@ let restaurantSchema = new Schema({
     latitude: {type: Number, required: true},
     openTime: {type: Number, required: true},
     closeTime: {type: Number, required: true},
+    rating: {type: Number, default: 5},
     icon: {type: String, required: true}
 });
 
