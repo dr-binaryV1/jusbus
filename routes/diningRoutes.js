@@ -37,6 +37,17 @@ router.param("mID", (req, res, next, id) => {
     return next();
 });
 
+router.param("cID", (req, res, next, id) => {
+    let doc = req.dining.comments.id(id);
+    if(!doc) {
+        let error = new Error('Not Found');
+        error.status(404);
+        return next(error);
+    }
+    req.dining.comment = doc;
+    return next();
+});
+
 /***
  *
  * ALL GET REQUESTS FOR SERVER ARE BELOW
@@ -97,7 +108,7 @@ router.post('/dining/:dID/comments', (req, res, next) => {
    req.dining.save((error, results) => {
        if(error) return next(error);
        res.status(201);
-       res.json(results);
+       res.json(req.dinig.comments);
    })
 });
 
@@ -133,6 +144,17 @@ router.put('/dining/:dID', (req, res, next) => {
 
  router.delete('/dining/:dID', (req, res, next) => {
     req.dining.remove((error) => {
+        if(error) return next(error);
+        req.dining.save((error, results) => {
+            if (error) return next(error);
+            res.status(201);
+            res.json(results);
+        })
+    })
+ });
+
+ router.delete('/dining/:dID/comments/:cID', (req, res, next) => {
+    req.dining.comment.remove((error) => {
         if(error) return next(error);
         req.dining.save((error, results) => {
             if (error) return next(error);
