@@ -108,7 +108,7 @@ router.post('/dining/:dID/comments', (req, res, next) => {
    req.dining.save((error, results) => {
        if(error) return next(error);
        res.status(201);
-       res.json(req.dinig.comments);
+       res.json(req.dining.comments);
    })
 });
 
