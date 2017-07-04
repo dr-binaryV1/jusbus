@@ -170,7 +170,7 @@ router.delete('/dining/:dID/menus/:mID', (req, res, next) => {
        req.dining.save((error, results) => {
            if (error) return next(error);
            res.status(201);
-           res.json(results);
+           res.json(req.dining.comments);
        })
    })
 });
