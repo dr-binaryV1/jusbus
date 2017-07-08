@@ -20,7 +20,8 @@ router.post('/login', (req, res, next) => {
                 req.session.userId = user._id;
 
                 res.json({
-                    message: true
+                    message: true,
+                    id: user._id
                 });
             }
         });
