@@ -24,9 +24,6 @@ let userSchema = new Schema({
     email: {type: String, unique: true},
     password: {type: String, required: true},
     phone: {type: String, unique: true},
-    faculty: {type: String, required: true},
-    currentYear: {type: Number, default: 1},
-    timetable: [timetableSchema],
     createdAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now}
 });
@@ -49,7 +46,7 @@ userSchema.statics.authenticate = function(email, password, callback) {
             else{
               return callback();
             }
-            
+
             // bcrypt.compare(password, user.password , function(error, result) {
             //     if (result === true) {
             //         return callback(null, user);
