@@ -103,8 +103,6 @@ router.put('/users/:usID', (req, res, next) => {
    req.user.username = req.body.username;
    req.user.email = req.body.email;
    req.user.phone = req.body.phone;
-   req.user.faculty = req.body.faculty;
-   req.user.currentYear = req.body.currentYear;
    req.user.updatedAt = Date.now();
 
    req.user.save((error, result) => {
