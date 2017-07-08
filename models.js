@@ -24,6 +24,7 @@ let userSchema = new Schema({
     email: {type: String, unique: true},
     password: {type: String, required: true},
     phone: {type: String, unique: true},
+    activated: {type: Boolean, default: false},
     createdAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now}
 });
