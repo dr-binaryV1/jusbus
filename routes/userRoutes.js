@@ -68,9 +68,13 @@ router.get('/users/:usID/timetable', (req, res) => {
 router.post('/users', (req, res, next) => {
     let user = new Users(req.body);
     user.save((error, results) => {
-        if(error) return next(error);
+        if(error) {
+          res.json({ message: false })
+        };
         res.status(201);
-        res.json(results);
+        res.json({
+              message: true
+            });
     })
 });
 
