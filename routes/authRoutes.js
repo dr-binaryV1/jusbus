@@ -13,7 +13,6 @@ router.post('/login', (req, res, next) => {
             if (error || !user) {
                 let err = new Error('fail');
                 err.status = 401;
-                res.status(401);
                 res.json({
                     message: false
                 });
