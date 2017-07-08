@@ -21,7 +21,7 @@ router.post('/login', (req, res, next) => {
 
                 res.json({
                     message: true,
-                    id: user._id
+                    user
                 });
             }
         });
