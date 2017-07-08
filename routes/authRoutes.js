@@ -15,13 +15,13 @@ router.post('/login', (req, res, next) => {
                 err.status = 401;
                 res.status(401);
                 res.json({
-                    message: "fail"
+                    message: false
                 });
             }  else {
                 req.session.userId = user._id;
-                
+
                 res.json({
-                    message: "success"
+                    message: true
                 });
             }
         });
