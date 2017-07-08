@@ -13,12 +13,15 @@ router.post('/login', (req, res, next) => {
             if (error || !user) {
                 let err = new Error('fail');
                 err.status = 401;
-                return next(err);
+                res.status(401);
+                res.json({
+                    message: "fail"
+                });
             }  else {
                 req.session.userId = user._id;
-
+                
                 res.json({
-                    message: "success",
+                    message: "success"
                 });
             }
         });
