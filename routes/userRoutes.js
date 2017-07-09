@@ -2,7 +2,6 @@
 
 let Models = require('./../models');
 let express = require('express');
-let app = ('./../app');
 let fs = require('fs');
 let router = express.Router();
 
@@ -95,7 +94,7 @@ router.post('/users/:usID/timetable', (req, res, next) => {
    })
 });
 
-app.post('/profilepicture/upload', (req, res) => {
+router.post('/profilepicture/upload', (req, res) => {
     console.log('in upload route');
     let fstream;
     req.pipe(req.busyboy);
