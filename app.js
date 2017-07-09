@@ -5,6 +5,7 @@ let mongoose = require('mongoose');
 let session = require('express-session');
 let mongoStore = require('connect-mongo')(session);
 let bodyParser = require('body-parser').json;
+let busboy = require('connect-busboy');
 
 // Assign routes to variables to be used by app
 let userRoutes = require('./routes/userRoutes');
@@ -19,6 +20,7 @@ let universityRoutes = require('./routes/universityRoutes');
 let app = express();
 
 app.use(bodyParser());
+app.use(busboy());
 
 mongoose.connect('mongodb://damian:password@ds123371.mlab.com:23371/heroku_6822tlk9');
 

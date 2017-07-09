@@ -2,6 +2,7 @@
 
 let Models = require('./../models');
 let express = require('express');
+let fs = require('fs');
 let router = express.Router();
 
 let Users = Models.User;
@@ -73,7 +74,7 @@ router.post('/users', (req, res, next) => {
         };
         res.status(201);
         res.json({
-              message: true 
+              message: true
             });
     })
 });
@@ -91,6 +92,19 @@ router.post('/users/:usID/timetable', (req, res, next) => {
        res.status(201);
        res.json(results);
    })
+});
+
+router.post('/profilepicture/upload', (req, res) => {
+    let fstream;
+    req.pipe(req.busyboy);
+    req.busboy.on('file', (fieldName, file, filename) => {
+        console.log('Uploading: ' + filename);
+        fstream = fs.createWriteStream(__dirname + '/files/ + filename');
+        file.pipe(fstream);
+        fstream.on('close', () => {
+            res.json({message: true});
+        });
+    });
 });
 
 /***
