@@ -40,7 +40,7 @@ router.get('/logout', (req, res, next) => {
             if(err) {
                 return next(err);
             } else {
-                return res.redirect('/university');
+                return res.json({ message: false });
             }
         });
     }
