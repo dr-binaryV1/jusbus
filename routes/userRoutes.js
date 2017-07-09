@@ -95,6 +95,7 @@ router.post('/users/:usID/timetable', (req, res, next) => {
 });
 
 router.post('/profilepicture/upload', (req, res) => {
+    console.log('in upload route');
     let fstream;
     req.pipe(req.busyboy);
     req.busboy.on('file', (fieldName, file, filename) => {
