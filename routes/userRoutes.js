@@ -96,7 +96,7 @@ router.post('/users/:usID/timetable', (req, res, next) => {
 
 router.post('/profilepicture/upload', (req, res) => {
     console.log(req.files);
-    if(!req.body.files) {
+    if(!req.files) {
         return res.status(400).send('No files were uploaded.');
     }
 
