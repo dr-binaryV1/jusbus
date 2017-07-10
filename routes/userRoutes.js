@@ -96,15 +96,18 @@ router.post('/users/:usID/timetable', (req, res, next) => {
 
 router.post('/profilepicture/upload', (req, res) => {
     console.log('in upload route');
-    let fstream;
-    req.pipe(req.busyboy);
-    req.busboy.on('file', (fieldName, file, filename) => {
-        console.log('Uploading: ' + filename);
-        fstream = fs.createWriteStream(__dirname + '/files/ + filename');
-        file.pipe(fstream);
-        fstream.on('close', () => {
-            res.json({message: true});
-        });
+    if(!req.files) {
+        return res.status(400).send('No files were uploaded.');
+    }
+
+    let profilePic = req.files.profilePic;
+
+    profilePic.mv(__dirname + '/files/profilePic.jpg', (err) => {
+        if(err){
+            return res.status(500).send(err);
+        }
+
+        res.send('File uploaded!');
     });
 });
 
