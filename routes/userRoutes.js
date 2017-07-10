@@ -102,7 +102,7 @@ router.post('/profilepicture/upload', (req, res) => {
 
     let profilePic = req.files.profilePic;
 
-    profilePic.mv(__dirname + '/files/profilePic.jpg', (err) => {
+    profilePic.mv('/files/profilePic.jpg', (err) => {
         if(err){
             return res.status(500).send(err);
         }
