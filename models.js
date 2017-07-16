@@ -178,12 +178,12 @@ let restaurantSchema = new Schema({
     tel: {type: String, required: true},
     menu: [menuItemSchema],
     comments: [commentSchema],
-    longitude: {type: Number, required: true},
-    latitude: {type: Number, required: true},
+    longitude: {type: Number},
+    latitude: {type: Number},
     openTime: {type: Number, required: true},
     closeTime: {type: Number, required: true},
     rating: {type: Number, default: 5},
-    icon: {type: String, required: true}
+    icon: {type: String}
 });
 
 classroomSchema.method('update', function(updates, callback){
