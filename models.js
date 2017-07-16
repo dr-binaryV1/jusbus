@@ -75,6 +75,10 @@ let classroomSchema = new Schema({
     name: String
 });
 
+let categorySchema = new Schema({
+    name: String
+});
+
 let facultySchema = new Schema({
     name: {type: String, required: true, unique: true},
     description: String,
@@ -203,6 +207,7 @@ let User = Mongoose.model('User', userSchema);
 let Rental = Mongoose.model('Rental', rentalSchema);
 let Grocery = Mongoose.model('Grocery', grocerySchema);
 let Building = Mongoose.model('Building', buildingSchema);
+let Category = Mongoose.model('Category', categorySchema);
 let Restaurant = Mongoose.model('Restaurant', restaurantSchema);
 let University = Mongoose.model('University', universitySchema);
 let Entertainment = Mongoose.model('Entertainment', entertainmentSchema);
@@ -211,6 +216,7 @@ module.exports.User = User;
 module.exports.Rental = Rental;
 module.exports.Grocery = Grocery;
 module.exports.Building = Building;
+module.exports.Category = Category;
 module.exports.Restaurant = Restaurant;
 module.exports.University = University;
 module.exports.Entertainment = Entertainment;
